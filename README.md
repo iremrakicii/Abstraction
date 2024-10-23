@@ -2,66 +2,43 @@
 
 Bu proje, **Company** sınıfı üzerinden türetilmiş olan personel sınıflarını kullanarak, farklı departmanlarda çalışan şirket çalışanlarını modellemektedir. Her bir çalışan, kendine özgü bir göreve ve departmana sahiptir.
 
-## Sınıflar
+# Şirket Görev Yönetimi Projesi
 
-### 1. Company (Soyut Sınıf)
+Bu proje, bir şirketteki farklı rollerde çalışanların görevlerini tanımlayan ve görevlerini konsola yazdıran basit bir **C# Abstraction (Soyutlama)** örneğidir.
 
-Bu sınıf şirket çalışanlarının genel özelliklerini tanımlar. Her çalışanın bir **isim**, **soyisim** ve **departmanı** bulunur. Ayrıca, her alt sınıfın kendi görev tanımını yapmasını zorunlu kılan soyut bir **Gorev** metodu vardır.
+## Proje Hakkında
 
-- **Properties**:
-  - `string Name`: Çalışanın adı.
-  - `string LastName`: Çalışanın soyadı.
-  - `string Department`: Çalışanın çalıştığı departman.
+Projede, soyut bir sınıf olan `Company` sınıfı yer almaktadır ve bu sınıf, çalışanların ad, soyad ve departman bilgilerini tutmakta ve her çalışan için `Gorev()` adında soyut bir metot içermektedir.
+
+Bu soyut sınıfı miras alan 3 farklı sınıf bulunmaktadır:
+
+1. **ProjectManager** - Proje yöneticilerini temsil eder.
+2. **SoftwareDeveloper** - Yazılım geliştiricilerini temsil eder.
+3. **SalesRepresentative** - Satış temsilcilerini temsil eder.
+
+Her bir sınıf, kendi içinde `Gorev()` metodunu implement ederek çalışanların görev tanımını konsola yazdırmaktadır.
+
+## Kullanılan Sınıflar ve Metotlar
+
+- `Company`: Çalışanların temel özelliklerini tutan soyut sınıf.
+  - Özellikler: `Name`, `LastName`, `Department`
+  - Metot: `Gorev()`
   
-- **Methods**:
-  - `abstract void Gorev()`: Alt sınıflarda uygulanması zorunlu olan görev metodu.
+- `ProjectManager`: Şirkette proje yöneticisi rolünü temsil eden sınıf. `Gorev()` metodunu override eder.
+  
+- `SoftwareDeveloper`: Şirkette yazılım geliştirici rolünü temsil eden sınıf. `Gorev()` metodunu override eder.
+  
+- `SalesRepresentative`: Şirkette satış temsilcisi rolünü temsil eden sınıf. `Gorev()` metodunu override eder.
 
-### 2. ProjectManager (Proje Yöneticisi)
+## Programın Çalıştırılması
 
-Bu sınıf, **Company** sınıfından türetilmiştir ve bir proje yöneticisini temsil eder. Bu sınıfın görev metodu, proje yöneticisinin şirkette ne iş yaptığını açıklar.
+`Main` metodunda üç farklı nesne oluşturulmaktadır:
 
-- **Constructor**:
-  - `ProjectManager(string name, string lastName)`: İsim ve soyadını alarak, departman ismini "Proje Yöneticisi" olarak atar.
+1. **ProjectManager** nesnesi
+2. **SoftwareDeveloper** nesnesi
+3. **SalesRepresentative** nesnesi
 
-- **Gorev()**:
-  - Şirkette proje yöneticisi olarak çalıştığını bildirir.
+Her bir nesne için çalışan bilgileri set edilir ve `Gorev()` metodu çağrılarak görev tanımları konsola yazdırılır.
 
-### 3. SoftwareDeveloper (Yazılım Geliştiricisi)
-
-Bu sınıf, **Company** sınıfından türetilmiştir ve bir yazılım geliştiricisini temsil eder. Görev metodu yazılım geliştiricisinin şirketteki rolünü açıklar.
-
-- **Constructor**:
-  - `SoftwareDeveloper(string name, string lastName)`: İsim ve soyadını alarak, departman ismini "Yazılım Geliştiricisi" olarak atar.
-
-- **Gorev()**:
-  - Şirkette yazılım geliştirici olarak çalıştığını bildirir.
-
-### 4. SalesRepresentative (Satış Temsilcisi)
-
-Bu sınıf, **Company** sınıfından türetilmiştir ve bir satış temsilcisini temsil eder. Görev metodu satış temsilcisinin şirketteki rolünü açıklar.
-
-- **Constructor**:
-  - `SalesRepresentative(string name, string lastName)`: İsim ve soyadını alarak, departman ismini "Satış Temsilcisi" olarak atar.
-
-- **Gorev()**:
-  - Şirkette satış temsilcisi olarak çalıştığını bildirir.
-
-## Kullanım
-
-Aşağıdaki örnek kod, üç farklı departmandan çalışanlar oluşturur ve her bir çalışanın görevini ekrana yazdırır:
-
-```csharp
-Company projectManager = new ProjectManager("Reha", "Rakıcı");
-Console.WriteLine($"{projectManager.Name} {projectManager.LastName}, şirketin {projectManager.Department}");
-projectManager.Gorev();
-
-Company softwareDeveloper = new SoftwareDeveloper("İrem", "Rakıcı");
-Console.WriteLine($"{softwareDeveloper.Name} {softwareDeveloper.LastName}, şirketin {softwareDeveloper.Department}");
-softwareDeveloper.Gorev();
-
-Company salesRepresentative = new SalesRepresentative("Tahsin", "Rakıcı");
-Console.WriteLine($"{salesRepresentative.Name} {salesRepresentative.LastName}, şirketin {salesRepresentative.Department}");
-salesRepresentative.Gorev();
-```
 ## Kullanılan Araç Ve Teknolojiler
 Programlama Dili: C# IDE: Visual Studio
