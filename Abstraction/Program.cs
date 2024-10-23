@@ -4,16 +4,22 @@ class Program
 {
     static void Main()
     {
-        Company projectManager = new ProjectManager("Reha", "Rakıcı");
-        Console.WriteLine($"{projectManager.Name} {projectManager.LastName}, şirketin {projectManager.Department}");
+        Company projectManager = new ProjectManager();
+        projectManager.Name = "Reha";
+        projectManager.LastName = "Rakıcı";
+        projectManager.Department = "Proje Yöneticisi";
         projectManager.Gorev();
         Console.WriteLine("--------------------------------------------------");
-        Company softwareDeveloper = new SoftwareDeveloper("İrem", "Rakıcı");
-        Console.WriteLine($"{softwareDeveloper.Name} {softwareDeveloper.LastName}, şirketin {softwareDeveloper.Department}");
+        Company softwareDeveloper = new SoftwareDeveloper();
+        softwareDeveloper.Name = "İrem";
+        softwareDeveloper.LastName = "Rakıcı";
+        softwareDeveloper.Department = "Yazılım Geliştiricisi";
         softwareDeveloper.Gorev();
         Console.WriteLine("--------------------------------------------------");
-        Company salesRepresentative = new SalesRepresentative("Tahsin", "Rakıcı");
-        Console.WriteLine($"{salesRepresentative.Name} {salesRepresentative.LastName}, şirketin {salesRepresentative.Department}");
+        Company salesRepresentative = new SalesRepresentative();
+        salesRepresentative.Name = "Tahsin";
+        salesRepresentative.LastName = "Rakıcı";
+        salesRepresentative.Department = "Satış Temsilcisi";
         salesRepresentative.Gorev();
     }
 }
